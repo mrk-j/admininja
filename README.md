@@ -17,6 +17,7 @@ What will `admininja` become?
 * Easy to integrate
 * Provide an easy CRUD interface for your existing models and relations
 * Looks based on Twitter Bootstrap
+* Tests with PHPUnit
 * Much more!
 
 License
