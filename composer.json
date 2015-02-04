@@ -1,21 +1,23 @@
 {
     "name": "mrk-j",
     "description": "Laravel 5 Admin Package",
-    "keywords": ["laravel", "admin"],
+    "keywords": [
+                 "laravel",
+                 "admin"
+                 ],
     "license": "MIT",
     "authors": [
                 {
-                    "name": "Mark",
-                    "email": "mrk-j@users.noreply.github.com"
+                "name": "Mark",
+                "email": "mrk-j@users.noreply.github.com"
                 }
                 ],
     "require": {
         "php": ">=5.4.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "~4.0",
+        "phpunit/phpunit": "~4.0"
     },
-    "autoload": {
-    },
+    "autoload": {},
     "minimum-stability": "dev"
 }
