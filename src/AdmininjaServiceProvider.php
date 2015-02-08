@@ -22,12 +22,28 @@ class AdmininjaServiceProvider extends ServiceProvider {
 			__DIR__ . '/../config/admininja.php', 'admininja'
 		);
 
+		/**
+		 * Register admininja:publish command
+		 */
 		$this->app['command.admininja.publish'] = $this->app->share(function($app)
 		{
 			return new Console\Commands\PublishCommand($app['files'], public_path());
 		});
 
 		$this->commands('command.admininja.publish');
+
+		/**
+		 * Configure admininja routes
+		 */
+		$routeConfig = ['prefix' => $this->app['config']->get('admininja.uri')];
+
+		$this->app['router']->group($routeConfig, function($router)
+		{
+			$router->get('/', function()
+			{
+				return view('admininja::layouts.master');
+			});
+		});
 	}
 
 	public function boot()
@@ -35,6 +51,8 @@ class AdmininjaServiceProvider extends ServiceProvider {
 		$this->publishes([
 			__DIR__ . '/../config/admininja.php' => config_path('admininja.php'),
 		]);
+
+		$this->loadViewsFrom(__DIR__ . '/../resources/views', 'admininja');
 	}
 
 }
