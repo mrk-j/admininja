@@ -9,7 +9,23 @@ I use `admininja` as my sideproject to learn more about Laravel 5 and package de
 Work in progress
 ===
 
-Currently the repository is pretty empty, I will start developing soon!
+This is my current task list:
+
+- [x] Add basic config and publish command for assets
+- [ ] Create simple GUI
+- [ ] CRUD for basic Eloquent model
+- [ ] Manage relationships
+
+Installation
+===
+
+This package is under construction and not available through Packagist yet. You can download the source follow the steps below:
+
+1. Unzip the package in your vendor directory manually in the folder `mrkj/admininja`.
+2. Add the following line to the PSR-4 autoloading section in the `composer.json` file of your project: `"Mrkj\\Admininja\\": "vendor/mrkj/admininja/src/"`. 
+3. Add the service provider to `config/app.php`: `'Mrkj\Admininja\AdmininjaServiceProvider'`.
+4. Run `php artisan vendor:publish` to publish the config.
+5. Run `php artisan admininja:publish` to publish the assets to your public directory.
 
 What will `admininja` become?
 ===
