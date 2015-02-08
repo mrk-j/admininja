@@ -9,4 +9,9 @@ return [
 	 */
 	'uri' => 'admin',
 
+	/**
+	 * Dashboard title
+	 */
+	'title' => 'admininja',
+
 ];

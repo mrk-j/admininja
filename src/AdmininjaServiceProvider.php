@@ -53,6 +53,8 @@ class AdmininjaServiceProvider extends ServiceProvider {
 		]);
 
 		$this->loadViewsFrom(__DIR__ . '/../resources/views', 'admininja');
+
+		$this->app['view']->composer('*', 'Mrkj\Admininja\Composers\MenuComposer');
 	}
 
 }
