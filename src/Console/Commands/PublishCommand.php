@@ -47,7 +47,7 @@ class PublishCommand extends Command {
 	{
 		$package = 'mrkj/admininja';
 
-		$source = __DIR__ . '/../../../assets/';
+		$source = __DIR__ . '/../../../resources/assets/';
 		$destination = $this->publishPath . '/packages/' . $package;
 
 		if($this->files->isDirectory($destination))
