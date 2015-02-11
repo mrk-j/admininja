@@ -14,4 +14,9 @@ return [
 	 */
 	'title' => 'admininja',
 
+	/**
+	 * Model namespace
+	 */
+	'model_namespace' => 'App',
+
 ];

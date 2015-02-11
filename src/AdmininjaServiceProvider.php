@@ -43,7 +43,17 @@ class AdmininjaServiceProvider extends ServiceProvider {
 			{
 				return view('admininja::layouts.master');
 			});
+
+			$router->get('model/{model}', [
+				'uses' => 'Mrkj\Admininja\Http\Controllers\ModelController@index',
+				'as' => 'admininja.model.index'
+			]);
 		});
+
+		$this->app['admininja'] = function()
+		{
+			return new Admininja;
+		};
 	}
 
 	public function boot()
