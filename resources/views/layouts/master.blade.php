@@ -7,6 +7,7 @@
 		<title>{{ Config::get('admininja.title') }}</title>
 
 		<link href="{{ asset('packages/mrkj/admininja/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+		<link href="{{ asset('packages/mrkj/admininja/bootstrap/css/bootstrap-theme.min.css') }}" rel="stylesheet">
 		<link href="{{ asset('packages/mrkj/admininja/css/admininja.css') }}" rel="stylesheet">
 
 		<!--[if lt IE 9]>
@@ -44,12 +45,13 @@
 				</ul>
 			</div>
 			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-				<h1>Dashboard</h1>
-				<p>Stay tuned!</p>
+				@yield('content')
 			</div>
 		</div>
 
 		<script src="{{ asset('packages/mrkj/admininja/js/jquery-1.11.2.min.js') }}"></script>
 		<script src="{{ asset('packages/mrkj/admininja/bootstrap/js/bootstrap.min.js') }}"></script>
+		<script> window.csrfToken = '{{ csrf_token() }}'; </script>
+		<script src="{{ asset('packages/mrkj/admininja/js/admininja.js') }}"></script>
 	</body>
 </html>

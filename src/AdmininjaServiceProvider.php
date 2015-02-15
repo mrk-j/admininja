@@ -48,6 +48,31 @@ class AdmininjaServiceProvider extends ServiceProvider {
 				'uses' => 'Mrkj\Admininja\Http\Controllers\ModelController@index',
 				'as' => 'admininja.model.index'
 			]);
+
+			$router->get('model/{model}/create', [
+				'uses' => 'Mrkj\Admininja\Http\Controllers\ModelController@create',
+				'as' => 'admininja.model.create'
+			]);
+
+			$router->post('model/{model}', [
+				'uses' => 'Mrkj\Admininja\Http\Controllers\ModelController@store',
+				'as' => 'admininja.model.store'
+			]);
+
+			$router->get('model/{model}/{id}/edit', [
+				'uses' => 'Mrkj\Admininja\Http\Controllers\ModelController@edit',
+				'as' => 'admininja.model.edit'
+			]);
+
+			$router->put('model/{model}/{id}', [
+				'uses' => 'Mrkj\Admininja\Http\Controllers\ModelController@update',
+				'as' => 'admininja.model.update'
+			]);
+
+			$router->delete('model/{model}/{id}', [
+				'uses' => 'Mrkj\Admininja\Http\Controllers\ModelController@destroy',
+				'as' => 'admininja.model.destroy'
+			]);
 		});
 
 		$this->app['admininja'] = function()

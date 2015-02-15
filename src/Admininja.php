@@ -1,20 +1,23 @@
 <?php namespace Mrkj\Admininja;
 
-use Illuminate\Support\Facades\Config;
-
 class Admininja {
+
+	protected $namespace = null;
 
 	protected $model = null;
 
 	protected $instance = null;
 
-	public function __construct($model)
+	public function __construct($namespace, $model)
 	{
-		$this->model = Config::get('admininja.model_namespace') . '\\' . $model;
-
+		$this->namespace = $namespace;
+		$this->model = $this->namespace . '\\' . $model;
 		$this->instance = new $this->model;
 	}
 
+	/**
+	 * @return Admininjable
+	 */
 	public function getInstance()
 	{
 		return $this->instance;
