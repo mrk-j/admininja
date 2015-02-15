@@ -12,8 +12,8 @@ Work in progress
 This is my current task list:
 
 - [x] Add basic config and publish command for assets
-- [ ] Create simple GUI
-- [ ] CRUD for basic Eloquent model
+- [x] Create simple GUI
+- [x] CRUD for basic Eloquent model
 - [ ] Manage relationships
 
 Installation
@@ -22,10 +22,50 @@ Installation
 This package is under construction and not available through Packagist yet. You can download the source follow the steps below:
 
 1. Unzip the package in your vendor directory manually in the folder `mrkj/admininja`.
-2. Add the following line to the PSR-4 autoloading section in the `composer.json` file of your project: `"Mrkj\\Admininja\\": "vendor/mrkj/admininja/src/"`. 
+2. Add the following line to the PSR-4 autoloading section in the `composer.json` file of your project: `"Mrkj\\Admininja\\": "vendor/mrkj/admininja/src/"`.
 3. Add the service provider to `config/app.php`: `'Mrkj\Admininja\AdmininjaServiceProvider'`.
 4. Run `php artisan vendor:publish` to publish the config.
 5. Run `php artisan admininja:publish` to publish the assets to your public directory.
+
+Update your model to support `admininja`
+===
+
+To use `admininja` with your `Eloquent` model you can use this snippet:
+
+``` php
+<?php namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+use Mrkj\Admininja\Traits\Admininjable as Admininjable;
+
+class Post extends Model {
+
+	use Admininjable;
+
+	/**
+	 * Holds the admininja config for this Eloquent model
+	 * @var array
+	 */
+	protected $admininjaConfig = [
+		'title' => 'Posts',
+		'columns' => [
+			'id',
+			'title',
+		],
+		'edit_fields' => [
+			'title' => [
+				'type' => 'text',
+			],
+			'content' => [
+				'type' => 'text',
+			],
+		]
+	];
+
+	protected $fillable = array('title', 'content');
+
+}
+```
 
 What will `admininja` become?
 ===
